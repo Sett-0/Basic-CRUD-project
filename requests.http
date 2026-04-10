@@ -1,0 +1,34 @@
+### Get clients
+GET http://localhost:8080/api/clients
+
+### Get client by ID
+GET http://localhost:8080/api/clients/1
+
+### Get clients by name
+GET http://localhost:8080/api/clients/name/Alex 2
+
+### Get clients by gender
+GET http://localhost:8080/api/clients/gender/male
+
+### Create client
+POST http://localhost:8080/api/clients
+Content-Type: application/json
+
+{
+    "fullName": "Alex 3",
+    "gender": "male",
+    "status": "ACTIVE"
+}
+
+### Update client
+PUT http://localhost:8080/api/clients/1
+Content-Type: application/json
+
+{
+  "fullName": "Al",
+  "gender": "male",
+  "status": "ACTIVE"
+}
+
+### Delete client
+DELETE http://localhost:8080/api/clients/7
