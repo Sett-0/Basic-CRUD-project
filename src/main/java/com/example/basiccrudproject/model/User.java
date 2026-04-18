@@ -11,14 +11,27 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "full_name",
+            columnDefinition = "TEXT",
+            nullable = false)
     private String fullName;
+
+    @Column(name = "gender", columnDefinition = "VARCHAR(1)")
     private String gender;
+
+    @Column(name = "status", columnDefinition = "VARCHAR(20)")
     private String status;
 
     @CreationTimestamp
+    @Column(name = "create_dttm",
+            columnDefinition = "TIMESTAMP WITH TIME ZONE",
+            nullable = false)
     private LocalDateTime createDttm;
 
     @UpdateTimestamp
+    @Column(name = "modify_dttm",
+            columnDefinition = "TIMESTAMP WITH TIME ZONE",
+            nullable = false)
     private LocalDateTime modifyDttm;
 
     public String getFullName() {

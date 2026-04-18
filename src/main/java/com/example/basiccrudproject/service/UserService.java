@@ -1,10 +1,12 @@
 package com.example.basiccrudproject.service;
 
+import com.example.basiccrudproject.dto.ActiveClient;
 import com.example.basiccrudproject.exception.ClientNotFoundException;
 import com.example.basiccrudproject.model.User;
 import com.example.basiccrudproject.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -54,5 +56,18 @@ public class UserService {
 
     public void deleteClient(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public ActiveClient getActiveClients() {
+        List<User> clients = userRepository.findAll();
+        List<User> activeClients = new ArrayList<>();
+        int count = 0;
+        for (User client : clients) {
+            if (client.getStatus().equals("ACTIVE")) {
+                activeClients.add(client);
+                count++;
+            }
+        }
+        return new ActiveClient(activeClients, count);
     }
 }

@@ -5,30 +5,33 @@ GET http://localhost:8080/api/clients
 GET http://localhost:8080/api/clients/1
 
 ### Get clients by name
-GET http://localhost:8080/api/clients/name/Alex 2
+GET http://localhost:8080/api/clients/name/Alexa
 
 ### Get clients by gender
-GET http://localhost:8080/api/clients/gender/male
+GET http://localhost:8080/api/clients/gender/m
+
+### Get clients by active status
+GET http://localhost:8080/api/clients/active
 
 ### Create client
 POST http://localhost:8080/api/clients
 Content-Type: application/json
 
 {
-    "fullName": "Alex 3",
-    "gender": "male",
+    "fullName": "Alexa",
+    "gender": "f",
     "status": "ACTIVE"
 }
 
 ### Update client
-PUT http://localhost:8080/api/clients/1
+PUT http://localhost:8080/api/clients/3
 Content-Type: application/json
 
 {
-  "fullName": "Al",
-  "gender": "male",
-  "status": "ACTIVE"
+  "fullName": "Alexa",
+  "gender": "f",
+  "status": "INACTIVE"
 }
 
 ### Delete client
-DELETE http://localhost:8080/api/clients/7
+DELETE http://localhost:8080/api/clients/1
